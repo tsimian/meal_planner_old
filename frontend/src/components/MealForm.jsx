@@ -1,31 +1,51 @@
 import { useState } from 'react'
 
-const MealForm = () => {
-    const [input, setInput] = useState('')
+const MealForm = ({ setMeals }) => {
+    const [day, setDay] = useState('')
+    const [name, setName] = useState('')
 
     const onSubmit = e => {
         e.preventDefault()
 
-        console.log(input);
-        setInput('')
+        setMeals(meals => [...meals, {
+            id: Math.floor(Math.random() * 100),
+            day: day,
+            name: name
+        }])
+
+        console.log(day, name)
+        setDay('')
+        setName('')
     }
 
 
   return (
     <section className="form">
         <form onSubmit={onSubmit}>
-            <div className="form-group">
-                <label htmlFor="input">Food</label>
+        <div className="form-group">
+                <label htmlFor="day">Day</label>
                 <input 
                     type="text" 
-                    name="input" 
-                    id="input" 
-                    value={input} 
-                    onChange={(e) => setInput(e.target.value)} 
+                    name="day" 
+                    id="day" 
+                    value={day} 
+                    onChange={(e) => setDay(e.target.value)}
+                    required 
                 />
             </div>
             <div className="form-group">
-                <button className="btn btn-block" type="submit">Add Food</button> 
+                <label htmlFor="name">Meal</label>
+                <input 
+                    type="text" 
+                    name="name" 
+                    id="name" 
+                    value={name} 
+                    onChange={(e) => setName(e.target.value)}
+                    required 
+                />
+            </div>
+            <div className="form-group">
+                <button className="btn btn-dark btn-block" type="submit">Add Food</button> 
             </div>
         </form>
     </section>
