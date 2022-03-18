@@ -1,7 +1,7 @@
 {
-  "name": "meal_manager",
+  "name": "meal_planner",
   "version": "1.0.0",
-  "description": "An app to manage meals and calorie intake",
+  "description": "An app to plan meals",
   "main": "server.js",
   "scripts": {
     "start": "node backend/server.js",
