@@ -7,7 +7,9 @@ const {
     deleteMeal
 } = require('../controllers/mealController')
 
-router.route('/').get(getMeals).post(setMeal)
-router.route('/:id').delete(deleteMeal).put(updateMeal)
+const { protect } = require('../middleware/authMiddleware')
+
+router.route('/').get(protect, getMeals).post(protect, setMeal)
+router.route('/:id').delete(protect, deleteMeal).put(protect, updateMeal)
 
 module.exports = router

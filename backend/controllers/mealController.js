@@ -6,7 +6,7 @@ const Meal = require('../models/mealModel')
 // @access  Private
 const  getMeals = asyncHandler(
     async (req, res) => {
-        const meals = await Meal.find()
+        const meals = await Meal.find({ user: req.user.id })
 
         res.status(200).json(meals)
 })
@@ -24,7 +24,8 @@ const setMeal = asyncHandler(
 
         const meal = await Meal.create({
             day: req.body.day,
-            name: req.body.name
+            name: req.body.name,
+            user: req.user.id
         })
     
         res.status(200).json(meal)
@@ -44,6 +45,18 @@ const updateMeal = asyncHandler(
             throw new Error('Meal not found')
         }
 
+        // Check for user
+        if(!req.user) {
+            res.status(401)
+            throw new Error('User not found')
+        }
+
+        // Make sure the logged in user matches the meal user
+        if (meal.user.toString() !== req.user.id) {
+            res.status(401)
+            throw new Error('User not authorized')
+        }
+
         const updatedMeal = await Meal.findByIdAndUpdate(req.params.id, req.body, {new: true})
 
         res.status(200).json(updatedMeal)
@@ -61,6 +74,18 @@ const deleteMeal = asyncHandler(
         if (!meal) {
             res.status(400)
             throw new Error('Meal not found')
+        }
+
+        // Check for user
+        if(!req.user) {
+            res.status(401)
+            throw new Error('User not found')
+        }
+
+        // Make sure the logged in user matches the meal user
+        if (meal.user.toString() !== req.user.id) {
+            res.status(401)
+            throw new Error('User not authorized')
         }
 
         await meal.remove()
