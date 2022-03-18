@@ -17,12 +17,13 @@ const  getMeals = asyncHandler(
 const setMeal = asyncHandler(
     async (req, res) => {
 
-        if (!req.body.name) {
+        if (!req.body.day || !req.body.name) {
             res.status(400)
-            throw new Error('Please add to field')
+            throw new Error('Please add to fields')
         }
 
         const meal = await Meal.create({
+            day: req.body.day,
             name: req.body.name
         })
     
