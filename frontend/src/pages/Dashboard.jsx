@@ -38,7 +38,7 @@ const Dashboard = () => {
     <>
       <section className="heading">
         <h1>Welcome {user && user.name} </h1>
-        <p>Meals Dashboard</p>
+        <p>Dashboard</p>
       </section>
       <MealForm />
       <section className="content">

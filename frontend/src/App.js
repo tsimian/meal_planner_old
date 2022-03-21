@@ -6,6 +6,7 @@ import {
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Header from './components/Header'
+import Footer from './components/Footer'
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
 import Register from './pages/Register'
@@ -16,11 +17,14 @@ function App() {
       <Router>
         <div className="container">
         <Header />
-          <Routes>
-            <Route path='/' element={<Dashboard />} />
-            <Route path='/Login' element={<Login />} />
-            <Route path='/Register' element={<Register />} />
-          </Routes>
+          <div className="content">
+            <Routes>
+              <Route path='/' element={<Dashboard />} />
+              <Route path='/Login' element={<Login />} />
+              <Route path='/Register' element={<Register />} />
+            </Routes>
+          </div>
+        <Footer />
         </div>
       </Router>
       <ToastContainer />

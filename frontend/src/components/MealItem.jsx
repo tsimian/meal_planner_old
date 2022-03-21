@@ -1,18 +1,24 @@
 import { useDispatch } from 'react-redux'
 import { deleteMeal } from '../features/meals/mealSlice'
-import { FaMinusCircle } from 'react-icons/fa'
+import { FaTimes } from 'react-icons/fa'
 
 const MealItem = ({ meal }) => {
 
     const dispatch = useDispatch()
 
   return (
-    <div className="meal">
-        <div>{meal.day}</div>
-        <h2>{meal.name}</h2>
-        <button onClick={() => dispatch(deleteMeal(meal._id))} className="close">
-            <FaMinusCircle />
+    <div className="meal tile">
+      <div className="tile-header">
+        <h4>{meal.day}</h4>
+        <button 
+          onClick={() => dispatch(deleteMeal(meal._id))} 
+          className="close">
+          <FaTimes />
         </button>
+      </div>
+      <div className="tile-content">
+        <h2>{meal.name}</h2>
+      </div>
     </div>
   )
 }
