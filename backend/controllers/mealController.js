@@ -25,7 +25,13 @@ const setMeal = asyncHandler(
         const meal = await Meal.create({
             day: req.body.day,
             name: req.body.name,
-            user: req.user.id
+            user: req.user.id,
+            dishType: req.body.dishType,
+            servings: req.body.servings,
+            prepTime: req.body.prepTime,
+            totalTime: req.body.totalTime,
+            ingredients: req.body.ingredients,
+            directions: req.body.directions
         })
     
         res.status(200).json(meal)

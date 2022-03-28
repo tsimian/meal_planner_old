@@ -14,6 +14,24 @@ const mealSchema = mongoose.Schema(
         name: {
             type: String,
             require: [true, 'Please add a text value']
+        },
+        dishType : {
+            type: String
+        },
+        servings: {
+            type: String
+        },
+        prepTime: {
+            type: String
+        },
+        totalTime: {
+            type: String
+        },
+        ingredients: {
+            type: String
+        },
+        directions: {
+            type: String
         }
     }, 
     {

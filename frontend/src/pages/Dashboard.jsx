@@ -38,10 +38,9 @@ const Dashboard = () => {
     <>
       <section className="heading">
         <h1>Welcome {user && user.name} </h1>
-        <p>Dashboard</p>
       </section>
       <MealForm />
-      <section className="content">
+      <section className="page-content">
         { meals.length > 0 ? (
           <div className="meals">
             {meals.map((meal) => (

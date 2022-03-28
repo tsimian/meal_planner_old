@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { FaShoppingBasket, FaSignInAlt, FaSignOutAlt, FaUser } from 'react-icons/fa'
+import { FaCalendarWeek, FaSignInAlt, FaSignOutAlt, FaUser } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../features/auth/authSlice'
@@ -26,7 +26,7 @@ function Header() {
     <header className='header'>
         <div className="brand">
             <Link to='/'>
-              <FaShoppingBasket size={'28px'} className="logo" />
+              <FaCalendarWeek size={'28px'} className="logo" />
               <div className="brand-name">
                  Meal Planner
               </div> 
@@ -37,7 +37,14 @@ function Header() {
           {user ? (
             <>
               <li>
-                Messages
+                <Link to='/'>
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to='/profile'>
+                  Profile
+                </Link>
               </li>
               <li>
                 <div className='logout-btn' onClick={onLogout}>
@@ -72,7 +79,14 @@ function Header() {
               {user ? (
                 <>
                   <li>
-                    Messages
+                    <Link to='/'>
+                      Home
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to='/profile'>
+                      Profile
+                    </Link>
                   </li>
                   <li>
                     <div className='logout-btn' onClick={onLogout}>
