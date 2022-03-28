@@ -222,6 +222,17 @@ h3 {
   color: #f4f4f4;
 }
 
+.card p {
+  color: #f4f4f4;
+  margin-bottom: 5px;
+}
+
+.card p > a {
+  margin-left: 5px;
+  color: #f4f4f4;
+  text-decoration: underline;
+}
+
 /* Start Popup */
 .active-popup {
   overflow-y: hidden;

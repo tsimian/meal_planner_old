@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { FaUser, FaEnvelope, FaLock, FaCheck  } from 'react-icons/fa'
 import { register, reset } from '../features/auth/authSlice'
@@ -148,6 +148,11 @@ const Register = () => {
                 </div>
             </form>
         </section>
+        <p>Already have an account? 
+            <Link to='/login'>
+                Sign in
+            </Link>
+        </p>
     </div>
   )
 }
