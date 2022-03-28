@@ -6,9 +6,6 @@ import { v4 as uuidv4 } from 'uuid'
 
 const MealItem = ({ meal }) => {
 
-    // const query = meal.name.toLowerCase().split(' ').join('-')
-    // const url = `https://unsplash.com/s/photos/${query}`
-
     const [popup, setPopup] = useState(false)
 
     const togglePopup = () => {
