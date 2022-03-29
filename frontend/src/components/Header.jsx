@@ -41,11 +41,11 @@ function Header() {
                   Home
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to='/profile'>
                   Profile
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <div className='logout-btn' onClick={onLogout}>
                 Logout
@@ -83,11 +83,11 @@ function Header() {
                       Home
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link to='/profile'>
                       Profile
                     </Link>
-                  </li>
+                  </li> */}
                   <li>
                     <div className='logout-btn' onClick={onLogout}>
                     Logout
