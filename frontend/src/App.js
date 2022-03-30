@@ -17,6 +17,7 @@ function App() {
     <>
       <Router>
         <div className="container">
+        <div className="background-img"></div>
         <div className="page-overlay"></div>
         <Header />
           <div className="main-content">
