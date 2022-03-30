@@ -20,7 +20,11 @@ function Header() {
         dispatch(logout())
         dispatch(reset())
         navigate('/')
-      }
+    }
+
+    const goTop = () => {
+      document.window.scrollTop(0)
+    }
 
   return (
     <header className='header'>
@@ -37,7 +41,7 @@ function Header() {
           {user ? (
             <>
               <li>
-                <Link to='/'>
+                <Link to='/' onClick={goTop}>
                   Home
                 </Link>
               </li>
@@ -79,7 +83,7 @@ function Header() {
               {user ? (
                 <>
                   <li>
-                    <Link to='/'>
+                    <Link to='/' onClick={goTop}>
                       Home
                     </Link>
                   </li>
