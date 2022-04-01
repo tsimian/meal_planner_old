@@ -1,7 +1,7 @@
 # Meal Planner
 An app designed to plan meals for the week as well as store recipes for said meals in a database
 
-![App Screenshot](./public/screenshot.jpg)
+![App Screenshot](frontend/public/screenshot.jpg)
 
 ## Todos
 - Build up seperate user portfolio page
