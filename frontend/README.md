@@ -6,13 +6,17 @@ An app designed to plan meals for the week as well as store recipes for said mea
 ## Todos
 - Build up seperate user portfolio page
 - Add social network functionality (i.e.: the ability to add other users as friends and message them to share recipes and such)
-- Add functionality to edit meals
 
 ## Run
 Clone the repository, then...
 ```bash
-# Install
+# Install backend dependencies
 $ npm install
+
+# Install frontend dependencies
+$ cd frontend
+$ npm install
+
 # Run the backend and frontend with concurrently
 $ npm run dev
 ```
