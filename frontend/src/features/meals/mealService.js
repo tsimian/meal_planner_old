@@ -28,6 +28,19 @@ const getMeals = async (token) => {
     return response.data
 }
 
+// Update user meal
+const updateMeal = async (data, token) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+
+    const response = await axios.put(API_URL + data.id, data, config)
+
+    return response.data
+}
+
 // Delete user meal
 const deleteMeal = async (mealId, token) => {
     const config = {
@@ -44,6 +57,7 @@ const deleteMeal = async (mealId, token) => {
 const mealService = {
     createMeal,
     getMeals,
+    updateMeal,
     deleteMeal
 }
 

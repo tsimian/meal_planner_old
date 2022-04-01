@@ -1,43 +1,14 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { createMeal } from '../features/meals/mealSlice'
+import { updateMeal, createMeal } from '../features/meals/mealSlice'
 import { FaTimes, FaChevronCircleDown, FaChevronCircleUp } from 'react-icons/fa'
 
 
-function MealForm() {
-
-    const [mealData, setMealData] = useState({
-        day: '',
-        name: '',
-        dishType: '',
-        servings: '',
-        prepTime: '',
-        totalTime: '',
-        ingredients: '',
-        directions: ''
-    })
-
-    const { day, name, dishType, servings, prepTime, totalTime, ingredients, directions } = mealData
-
-    const [popup, setPopup] = useState(false)
-    const [addField, SetAddField] = useState(false)
-
-    const togglePopup = () => {
-        setPopup(!popup)
-        SetAddField(false)
-    }
-
-    const toggleField = () => {
-        SetAddField(!addField)
-    }
-
-    if (popup) {
-        document.body.classList.add('active-popup')
-    }   else {
-        document.body.classList.remove('active-popup')
-    }
+function MealForm({ meals, mealData, setMealData, currId, showForm, toggleForm, addField, toggleField }) {
 
     const dispatch = useDispatch()
+
+    const { day, name, dishType, servings, prepTime, totalTime, ingredients, directions } = mealData
 
     const onChange = (e) => {
         setMealData((prevState) => ({
@@ -50,16 +21,33 @@ function MealForm() {
     const onSubmit = (e) => {
         e.preventDefault()
 
-        dispatch(createMeal(mealData))
-        togglePopup()
+        if (meals.some(meal => meal._id === currId)) {
+            let curr = {
+                id: currId,
+                day: mealData.day,
+                name: mealData.name,
+                dishType: mealData.dishType,
+                servings: mealData.servings,
+                prepTime: mealData.prepTime,
+                totalTime: mealData.totalTime,
+                ingredients: mealData.ingredients,
+                directions: mealData.directions
+            }
+
+            dispatch(updateMeal(curr))
+        }   else {
+            dispatch(createMeal(mealData))
+        }
+
+        toggleForm()
     }
 
   return (
     <section className="form">
-        <button className="btn btn-block popup-btn" onClick={togglePopup}>Add Meal</button>
+        <button className="btn btn-block popup-btn" onClick={toggleForm}>Add Meal</button>
 
-        {popup && <div className="popup">
-                <div onClick={togglePopup} className="overlay"></div>
+        {showForm && <div className="popup">
+                <div onClick={toggleForm} className="overlay"></div>
                 <div className="popup-content">
                     <form onSubmit={onSubmit}>
                         <div className="form-group">
@@ -102,7 +90,7 @@ function MealForm() {
                                         Dish Type   
                                     </label>    
                                     <select name="dishType" id="dish-type" onChange={onChange} value={dishType}>
-                                        <option value="" disabled selected hidden>Please Select</option>
+                                        <option value="" disabled hidden>Please Select</option>
                                         <option value="Main Dish">Main Dish</option>
                                         <option value="Side Dish">Side Dish</option>
                                         <option value="Appetizer">Appetizer</option>
@@ -192,7 +180,7 @@ function MealForm() {
                             <button className="btn btn-block" type="submit">Submit</button>
                         </div>
                     </form>              
-                    <button className="close-popup" onClick={togglePopup}>
+                    <button className="close-popup" onClick={toggleForm}>
                         <FaTimes />
                     </button>
                 </div>

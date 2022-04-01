@@ -33,6 +33,18 @@ export const getMeals = createAsyncThunk('meals/getAll', async (_, thunkAPI) => 
     }
 })
 
+// Update user meal
+export const updateMeal = createAsyncThunk('meals/update', async (data, thunkAPI) => {
+    try {
+        const token = thunkAPI.getState().auth.user.token
+        return await mealService.updateMeal(data, token)
+
+    }   catch (error) {
+        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
+        return thunkAPI.rejectWithValue(message)
+    }
+})
+
 // Delete user meal
 export const deleteMeal = createAsyncThunk('meals/delete', async (id, thunkAPI) => {
     try {
@@ -79,6 +91,19 @@ export const mealSlice = createSlice({
             state.isError = true
             state.message = action.payload
         })
+        .addCase(updateMeal.pending, (state) => {
+            state.isLoading = true
+        })
+        .addCase(updateMeal.fulfilled, (state, action) => {
+            state.isLoading = false
+            state.isSuccess = true
+            state.meals = state.meals.map(meal => meal._id === action.payload._id ? action.payload : meal)
+        })
+        .addCase(updateMeal.rejected, (state, action) => {
+            state.isLoading = false
+            state.isError = true
+            state.message = action.payload
+        }) 
         .addCase(deleteMeal.pending, (state) => {
             state.isLoading = true
         })

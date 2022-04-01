@@ -320,14 +320,12 @@ h3 {
 
 .tile {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
 }
-
+/* 
 .tile:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.7);
   transform: translateY(-3px);
-  transition: 0.5ms;
-}
+} */
 
 .tile-header {
   display: flex;
@@ -352,9 +350,9 @@ h3 {
 }
 
 .btn-wrapper {
-  width: 50%;
   display: flex;
   justify-content: space-between;
+  width: 25%;
 }
 
 .tile .close,
@@ -362,7 +360,8 @@ h3 {
   cursor: pointer;
   border: none;
   background: none;
-  color: #f4f4f4; 
+  color: #f4f4f4;
+  padding: 5px 0 5px 5px;
 }
 
 .recipe p,

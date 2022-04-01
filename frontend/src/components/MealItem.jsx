@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { deleteMeal } from '../features/meals/mealSlice'
-import { FaTimes } from 'react-icons/fa'
+import { FaEdit, FaTimes } from 'react-icons/fa'
 import { v4 as uuidv4 } from 'uuid'
 
-const MealItem = ({ meal }) => {
+const MealItem = ({ meal, onEdit  }) => {
 
     const [popup, setPopup] = useState(false)
 
@@ -22,16 +22,23 @@ const MealItem = ({ meal }) => {
 
   return (
     <>
-      <div className="meal tile" onClick={togglePopup}>
+      <div className="meal tile">
         <div className="tile-header">
           <h4>{meal.day}</h4>
-          <button 
-            onClick={() => dispatch(deleteMeal(meal._id))} 
-            className="close">
-            <FaTimes />
+          <div className="btn-wrapper">
+            <button 
+              onClick={() => {onEdit(meal)}}
+              className="edit">
+                <FaEdit />
+              </button>
+            <button 
+              onClick={() => dispatch(deleteMeal(meal._id))} 
+              className="close">
+              <FaTimes />
           </button>
+          </div>
         </div>
-        <div className="tile-content">
+        <div className="tile-content" onClick={togglePopup}>
           <h2>{meal.name}</h2>
         </div>
       </div>
