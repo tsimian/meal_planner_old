@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { updateMeal, createMeal } from '../features/meals/mealSlice'
 import { FaTimes, FaChevronCircleDown, FaChevronCircleUp } from 'react-icons/fa'
