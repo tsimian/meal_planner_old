@@ -25,4 +25,4 @@ $ npm run dev
 Click on the Register button and fill out the form to create a user account. Then add meals by clicking on the 'Add Meal' button and add the recipe for the meal if you choose to.
 
 ## Note
-Built as part of a course with Traversy Media to further my learning of the MERN stack. I customized it as a meal planner, rebuilt the UI, components, schema, and added update functionality to the UI.
+Customized from of a course project with Traversy Media to further my learning of the MERN stack. I customized it as a meal planner, rebuilt the UI, components, schema, and added update functionality to the UI.
