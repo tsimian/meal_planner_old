@@ -22,7 +22,7 @@ body::-webkit-scrollbar {
 
 .main-content {
   width: 70%;
-  margin: 110px auto 0 auto;
+  margin: 155px auto 0 auto;
 }
 
 .container {
@@ -43,7 +43,7 @@ body::-webkit-scrollbar {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('https://images.unsplash.com/photo-1543353071-873f17a7a088?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
+  background: url('./assets/food.jpg');
   background-position: 'center';
   background-size: 'cover';
   background-repeat: 'no-repeat';
@@ -59,7 +59,7 @@ body::-webkit-scrollbar {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.45);
+  background-color: rgba(0,0,0,0.33);
   z-index: -1;
 }
 
