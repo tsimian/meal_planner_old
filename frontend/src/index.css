@@ -22,7 +22,7 @@ body::-webkit-scrollbar {
 
 .main-content {
   width: 70%;
-  margin: 170px auto 0 auto;
+  margin: 155px auto 0 auto;
 }
 
 .container {
@@ -43,9 +43,9 @@ body::-webkit-scrollbar {
   right: 0;
   bottom: 0;
   background: url('./assets/food.jpg');
-  background-repeat: no-repeat;
-  background-position: 'cover';
-  background-size: 'contain';
+  background-size: cover;
+  background-position: center;
+  object-fit: contain;
   /* background-attachment: fixed; */
   z-index: -1;
 }
