@@ -4,11 +4,6 @@ An app designed to plan meals for the week as well as store recipes for said mea
 
 ![App Screenshot](frontend/public/screenshot.jpg)
 
-## Todos
-
-- Build up seperate user portfolio page
-- Add social network functionality (i.e.: the ability to add other users as friends and message them to share recipes and such)
-
 ## Run
 
 Clone the repository, then...
